@@ -11,7 +11,7 @@ from supermarket_receipt_api.checkout import line_subtotal_cents, three_for_two_
     "quantity, expected",
     [
         (2, 2),
-        (1000, 10001),
+        (1000, 1000),
         (2000, 2000),
         (5, 5),
         (7, 7),
