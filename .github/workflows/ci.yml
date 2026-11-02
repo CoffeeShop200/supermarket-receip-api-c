@@ -27,5 +27,20 @@ jobs:
         run: |
           uv run pytest tests/unit -v
 
+  unit-tests:
+    name: "Format"
+    runs-on: "ubuntu-latest"
+    timeout-minutes: 5
+    steps:
+      - name: "Configurer l'environnement"
+        uses: "astral-sh/setup-uv@v10.2.0"
+        with:
+          python-version: "3.13"
+          enable-cache: false
+          persist-credentials: false
+      - name: "lances les tests unitaires"
+        run: |
+          uv run pytest tests/unit -v
+
       # À compléter pendant le TD : environnement, dépendances et vérifications.
 
