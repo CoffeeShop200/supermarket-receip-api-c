@@ -6,16 +6,7 @@ from supermarket_receipt_api.checkout import line_subtotal_cents, three_for_two_
 
 
 
-@pytest.mark.parametrize(
-    "quantity, expected",
-    [
-        (1, 1),
-        (2, 2),
-        (3, 3),
-        (4, 4),
-        (5, 5),
-    ],
-)
+
 @pytest.mark.parametrize(
     "quantity, expected",
     [
