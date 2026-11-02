@@ -325,3 +325,4 @@ def checkout(items: list[dict[str, object]]) -> dict[str, object]:
         "discount_cents": sum(line["discount_cents"] for line in lines),
         "total_cents": sum(line["total_cents"] for line in lines),
     }
+
