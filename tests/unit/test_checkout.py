@@ -2,9 +2,7 @@
 
 import pytest
 
-from supermarket_receipt_api.checkout import line_subtotal_cents, three_for_two_discount_cents,round_half_up, validate_quantity
-
-
+from supermarket_receipt_api.checkout import validate_quantity
 
 
 @pytest.mark.parametrize(
@@ -16,17 +14,13 @@ from supermarket_receipt_api.checkout import line_subtotal_cents, three_for_two_
         (-5),
         (-2),
     ],
-
-    
 )
 def test_validate_quantity_invalid(quantity: int) -> None:
     with pytest.raises(ValueError):
         validate_quantity(quantity)
 
 
-def validate_quantity_nominal(
-    quantity: int,expected: int
-) -> None:
+def validate_quantity_nominal(quantity: int, expected: int) -> None:
     """Vérifier la validation de la quantité.
 
     Aucun effet de bord ni application HTTP.
@@ -43,5 +37,3 @@ def validate_quantity_nominal(
         AssertionError: Si la quantité validée diffère de expected.
     """
     assert validate_quantity(quantity) == expected
-
-

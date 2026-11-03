@@ -4,6 +4,7 @@ from supermarket_receipt_api.main import app
 
 client = TestClient(app)
 
+
 def test_health_endpoint() -> None:
     """Vérifier que l'endpoint /health répond correctement.
 
@@ -41,6 +42,7 @@ def test_basket_endpoint() -> None:
     assert "total_cents" in response.json()
     assert "lines" in response.json()
 
+
 def test_basket_endpoint_red_run() -> None:
     """Vérifier que l'endpoint /checkout répond correctement avec un panier valide.
 
@@ -54,8 +56,8 @@ def test_basket_endpoint_red_run() -> None:
     """
     response = client.post(
         "/checkout",
-        json={"items": [{"product_id": "apples", "quantity": 3,"test": "test"}]},
-    ) 
+        json={"items": [{"product_id": "apples", "quantity": 3}]},
+    )
 
     assert response.status_code == 200
     assert "total_cents" in response.json()
