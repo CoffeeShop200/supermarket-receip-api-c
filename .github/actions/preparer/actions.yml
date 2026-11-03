@@ -1,0 +1,29 @@
+name: action
+
+on:
+  push:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs: 
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Recuperer le code
+        uses: actions/checkout@v4
+    runs:
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Installer uv
+        uses: astral-sh/setup-uv@v6
+      - name: Installer les dependances
+        run: uv sync --locked
+      - name: Construire le package
+        run: uv build
