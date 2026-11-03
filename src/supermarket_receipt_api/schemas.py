@@ -3,23 +3,7 @@
 from typing import Annotated, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
-
-
-class CartItem(BaseModel):
-    """Valider une entrée JSON du panier sans coercition ni champ supplémentaire.
-
-    Aucun effet de bord ; l'unité vient uniquement du catalogue.
-    La présence de product_id dans le catalogue est vérifiée par le moteur métier.
-
-    Attributes:
-        product_id (str): Identifiant du produit à rechercher dans le catalogue.
-        quantity (int): Quantité strictement positive, hors booléen.
-    """
-
-    model_config = ConfigDict(strict=True, extra="forbid")
-
-    product_id: str
-    quantity: Annotated[int, Field(gt=0)]
+ Field(gt=0)]
 
 
 class CheckoutRequest(BaseModel):

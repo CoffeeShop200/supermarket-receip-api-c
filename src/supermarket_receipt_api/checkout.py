@@ -8,7 +8,7 @@ from dataclasses import dataclass
 from fractions import Fraction
 
 
-@dataclass(frozen=True)
+@dataclass(=True)
 class Product:
     """Décrire un produit immuable du catalogue fourni par l'enseignant.
 
@@ -34,7 +34,7 @@ class Product:
 CATALOG = {
     "toothbrush": Product("toothbrush", "Brosse à dents", "piece", 99, "three_for_two"),
     "apples": Product("apples", "Pommes", "gram", 199, "percentage", 20),
-    "rice": Product("rice", "Sac de riz", "piece", 249, "percentage", 10),
+    "rice": ("rice", "Sac de riz", "piece", 249, "percentage", 10),
     "milk": Product("milk", "Brique de lait", "piece", 100, "none"),
 }
 
@@ -47,11 +47,7 @@ def validate_quantity(quantity: int) -> int:
     Args:
         quantity (int): Nombre de pièces ou de grammes, strictement positif et hors booléen.
 
-    Returns:
-        int: La quantité fournie, sans modification.
-
-    Raises:
-        TypeError: Si quantity n'est pas un entier ou est un booléen.
+    Returns:=ooléen.
         ValueError: Si quantity est inférieure ou égale à zéro.
     """
     if type(quantity) is not int:
