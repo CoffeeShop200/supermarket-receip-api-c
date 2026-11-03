@@ -10,13 +10,19 @@ from supermarket_receipt_api.checkout import line_subtotal_cents, three_for_two_
 @pytest.mark.parametrize(
     "quantity, expected",
     [
-        (2, 2),
+        (1, 1),
         (1000, 1000),
         (2000, 2000),
         (5, 5),
         (7, 7),
     ],
+
+    
 )
+@pytest.mark.parametrize("quantity", "expected")
+def test_validate_quantity_invalid(quantity: int) -> None:
+    with pytest.raises(ValueError):
+        validate_quantity(quantity=0)
 def test_validate_quantity_nominal(
     quantity: int,expected: int
 ) -> None:

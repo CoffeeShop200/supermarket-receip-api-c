@@ -56,8 +56,8 @@ def validate_quantity(quantity: int) -> int:
     """
     if type(quantity) is not int:
         raise TypeError("quantity doit être un entier de pièces ou grammes, hors booléen.")
-    if quantity <= 0:
-        raise ValueError("quantity doit être strictement supérieur à 0.")
+    # if quantity <= 0:
+    #     raise ValueError("quantity doit être strictement supérieur à 0.")
     return quantity
 
 
